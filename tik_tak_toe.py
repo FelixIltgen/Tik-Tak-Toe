@@ -3,14 +3,12 @@ import os
 import random
 import msvcrt as m
 
-game_field=[["-","-","-"],
-            ["-","-","-"],
-            ["-","-","-"]]
+game_field=[["1","2","3"],
+            ["4","5","6"],
+            ["7","8","9"]]
+availabel_fields = [1,2,3,4,5,6,7,8,9]
+
 current_player = bool
-player_zero = 0
-player_one = 1
-
-
 
 def start_game():
     os.system("cls")
@@ -24,13 +22,18 @@ def choose_player():
     random_int = random.randint(0,1)
     if (random_int == 0):
         print("Spiler O beginnt!")
+        current_player == False
         print_game_field()
         #Weiter mit erstem Spielzug von O
     else:
         print("Spieler X beginnt")
+        current_player == True
         print_game_field()
         #Weiter mit erstem Spielzug von X
 
+def choose_field():
+    print("Wähle ein freies Feld aus!")
+    
 #prints all tree rows of the gamfield list
 def print_game_field():
     
