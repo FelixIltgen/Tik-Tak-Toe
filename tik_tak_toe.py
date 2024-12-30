@@ -32,7 +32,17 @@ def choose_player():
         #Weiter mit erstem Spielzug von X
 
 def choose_field():
-    print("Wähle ein freies Feld aus!")
+    try:
+        current_input = int(input("Wähle ein freies Feld, durch eingabe der Angezeigten zahlen:"))
+    except:
+        print("Bitte gebe eine Valide Ganzzahl ein!")
+        choose_field()
+    if( current_input in availabel_fields):
+        print("Zahl passt")
+    else:
+        print("Zahl passt nicht")
+
+    
     
 #prints all tree rows of the gamfield list
 def print_game_field():
@@ -46,5 +56,5 @@ def print_game_field():
     print(f"--+---+--")
     print(f"{game_field[2][0]} | {game_field[2][1]} | {game_field[2][2]}")
 
-start_game()
+choose_field()
 
