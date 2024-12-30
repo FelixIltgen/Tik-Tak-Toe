@@ -20,32 +20,39 @@ def start_game():
     choose_first_player() 
 
 def choose_first_player():
+    #use global variabels
     global current_player
+    global x_or_o
+    
     print("Die Spielreihenfolge wird zufällig zugewiesen!")
     random_int = random.randint(0,1)
     if (random_int == 0):
         print("Spiler O beginnt!")
-        
         current_player = False
-        switch_player()
-        #Weiter mit erstem Spielzug von O
+        x_or_o = "O"
+        print_game_field()
+        choose_field()
     else:
         print("Spieler X beginnt")
         current_player = True
-        switch_player()
-        #Weiter mit erstem Spielzug von X
+        x_or_o = "X"
+        print_game_field()
+        choose_field()
         
 def switch_player():
     global x_or_o
     global current_player
     
     if (current_player is True):
+        print("Spieler O ist an der Reihe!")
         current_player = False
         x_or_o = "O"
+        choose_field()
     else:
+        print("Spieler X ist an der Reihe!")
         current_player = True
         x_or_o = "X"
-        
+        choose_field()
         
 
 def choose_field():
@@ -61,6 +68,7 @@ def choose_field():
         print("Zahl passt")
         game_field.insert(current_input-1, x_or_o)
         print_game_field()
+        switch_player()
     else:
         print("Das Feld ist bereits vergeben!")
         choose_field()
@@ -79,5 +87,5 @@ def print_game_field():
     print(f"--+---+--")
     print(f"{game_field[6]} | {game_field[7]} | {game_field[8]}")
 
-choose_first_player()
+start_game()# Aktuelles Problem: Zahlen verschieben sich nach eingabe im Spielfeld
 
