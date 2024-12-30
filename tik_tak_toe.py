@@ -66,6 +66,7 @@ def choose_field():
     # Check if choosen field is availabel  
     if( current_input in game_field):
         print("Zahl passt")
+        game_field.remove(current_input)
         game_field.insert(current_input-1, x_or_o)
         print_game_field()
         switch_player()
@@ -87,5 +88,9 @@ def print_game_field():
     print(f"--+---+--")
     print(f"{game_field[6]} | {game_field[7]} | {game_field[8]}")
 
-start_game()# Aktuelles Problem: Zahlen verschieben sich nach eingabe im Spielfeld
+start_game()
+
+#To do's: 
+# - Gewinn oder unentschieden überprüfen
+# - Zuvor gezeichnete Linien löschen
 
