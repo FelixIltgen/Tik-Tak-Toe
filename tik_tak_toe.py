@@ -8,6 +8,7 @@ game_field=[1,2,3,
             7,8,9,]
 
 current_player = None
+current_input = int
 x_or_o = ""
 
 def start_game():
@@ -54,8 +55,37 @@ def switch_player():
         x_or_o = "X"
         choose_field()
         
+def check_win_condition(input):
+    
+    match input:
+        case 1:
+            if(game_field[0] and game_field[1] & game_field[2] == x_or_o):
+                print("Spiel gewonnen")
+            elif(game_field[0] and game_field[3] and game_field[6] == x_or_o):
+                print("Spiel gewonnen")
+            elif(game_field[0] and game_field[4] and game_field[8]):
+                print("Spiel gewonnen")
+        case 2:
+            if(game_field[0]):
+                pass
+        case 3:
+            pass
+        case 4:
+            pass
+        case 5:
+            pass
+        case 6:
+            pass
+        case 7:
+            pass
+        case 8:
+            pass
+        case 9:
+            pass
+    
 
 def choose_field():
+    global current_input
     #Try user input. Check if input is valid.
     try:
         current_input = int(input("Wähle ein freies Feld, durch eingabe der Angezeigten zahlen:"))
@@ -93,4 +123,5 @@ start_game()
 #To do's: 
 # - Gewinn oder unentschieden überprüfen
 # - Zuvor gezeichnete Linien löschen
+# - Keine Möglichkeit mehr zu gewinnen
 
