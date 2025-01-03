@@ -59,14 +59,8 @@ def check_win_condition(input):
     
     match input:
         case 1:
-            if(game_field[0] and game_field[1] & game_field[2] == x_or_o):
-                print("Spiel gewonnen")
-            elif(game_field[0] and game_field[3] and game_field[6] == x_or_o):
-                print("Spiel gewonnen")
-            elif(game_field[0] and game_field[4] and game_field[8]):
-                print("Spiel gewonnen")
+            pass
         case 2:
-            if(game_field[0]):
                 pass
         case 3:
             pass
@@ -82,7 +76,14 @@ def check_win_condition(input):
             pass
         case 9:
             pass
-    
+def check_horizontal_win(input):
+    if (input == 1 or 4 or 7):
+        if (game_field[input-1] and game_field[input+1] and game_field[input+2] == x_or_o):
+            print("Spiel Gewonnen")
+            return True
+    elif(input == 2 or 5 or 8):
+        pass
+    return False
 
 def choose_field():
     global current_input
