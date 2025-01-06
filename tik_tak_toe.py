@@ -85,9 +85,11 @@ def check_horizontal_win(input):
     elif(input == 2 or 5 or 8):
         if(game_field[input-1] and game_field[input-2] and game_field[input +1] == x_or_o):
             print("Spiel Gewonnen")
+            return True
     elif(input == 3 or 6 or 9):
         if(game_field[input-1] and game_field[input-2] and game_field[input-3]):
             print("Spiel gewonnen")
+            return True
     else:
         return False
 
