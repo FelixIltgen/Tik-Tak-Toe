@@ -83,7 +83,7 @@ def check_horizontal_win(input):
             print("Spiel Gewonnen")
             return True
     elif(input == 2 or 5 or 8):
-        if(game_field[input-1] and game_field[input-2] and game_field[input +1] == x_or_o):
+        if(game_field[input-1] and game_field[input-2] and game_field[input] == x_or_o):
             print("Spiel Gewonnen")
             return True
     elif(input == 3 or 6 or 9):
@@ -94,12 +94,13 @@ def check_horizontal_win(input):
         return False
 
 def check_vertical_win(input):
+    #check all vertical win coditions for every colum
     if(input == 1 or 2 or 3):
-        if(game_field[input-1] and game_field[input+2] or game_field[input+6] == x_or_o):
+        if(game_field[input-1] and game_field[input+2] or game_field[input+5] == x_or_o):
             print("Spiel gewonnen")
             return True
     elif(input == 4 or 5 or 6):
-        if(game_field[input-1] and game_field[input-3] or game_field[input+3] == x_or_o):
+        if(game_field[input-1] and game_field[input-4] or game_field[input+2] == x_or_o):
             print("Spiel gewonnen")
             return True
     elif(input == 7 or 8 or 9):
