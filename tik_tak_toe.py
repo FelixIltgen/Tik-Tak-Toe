@@ -61,7 +61,7 @@ def check_win_condition(input):
         case 1:
             pass
         case 2:
-                pass
+            pass
         case 3:
             pass
         case 4:
@@ -94,7 +94,7 @@ def check_horizontal_win(input):
         return False
 
 def check_vertical_win(input):
-    #check all vertical win coditions for every colum
+    #check all vertical win conditions for every colum
     if(input == 1 or 2 or 3):
         if(game_field[input-1] and game_field[input+2] or game_field[input+5] == x_or_o):
             print("Spiel gewonnen")
@@ -111,6 +111,7 @@ def check_vertical_win(input):
         return False
 
 def check_diagonal_win(input):
+    # check all diagonal win conditions
     if(input == 1 or 9):
         if(game_field[input-1] and game_field[input+3] or game_field[input-5] and game_field[input+7] or game_field[input-9] == x_or_o):
             print("Spiel gewonnen")
@@ -160,7 +161,7 @@ def print_game_field():
 start_game()
 
 #To do's: 
-# - Gewinn oder unentschieden überprüfen
+# - Unentschieden überprüfen => Function die, das speilfeld checkt ob noch freie Felder sind
 # - Zuvor gezeichnete Linien löschen
 # - Keine Möglichkeit mehr zu gewinnen
 
