@@ -3,9 +3,9 @@ import os
 import random
 import msvcrt as m
 
-game_field=[1,2,3,
-            4,5,6,
-            7,8,9,]
+game_field=["X",2,3,
+            4,"X",6,
+            7,8,"X",]
 
 current_player = None
 current_input = int
@@ -124,6 +124,21 @@ def check_diagonal_win(input):
     else:
         return False
 
+def check_draw():
+    global game_field
+    global filed_is_full
+    filed_is_full = 0
+    for entry in game_field:
+        if (isinstance(entry,int)):
+            pass
+        else:
+            filed_is_full += 1
+    else:
+        if(filed_is_full == 9):
+            print("Keine Möglichkeit mehr")
+        else:
+            print("Es gibt noch freie Felder")
+
 def choose_field():
     global current_input
     #Try user input. Check if input is valid.
@@ -158,7 +173,7 @@ def print_game_field():
     print(f"--+---+--")
     print(f"{game_field[6]} | {game_field[7]} | {game_field[8]}")
 
-start_game()
+check_draw()
 
 #To do's: 
 # - Unentschieden überprüfen => Function die, das speilfeld checkt ob noch freie Felder sind
