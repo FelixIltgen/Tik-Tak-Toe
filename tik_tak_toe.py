@@ -57,15 +57,53 @@ def switch_player():
         
 def check_win_condition(input):
     
+    if(input == 1 or 3 or 5 or 7 or 9):
+        if(check_horizontal_win(input) or check_vertical_win(input) or check_diagonal_win(input)):
+            print("Spiel gewonnen")
+        elif(check_draw()):
+            print("Unentschieden")
+        else:
+            print("Noch nicht gewonnen")
+            
+    elif(input == 2 or 4 or 6 or 8):
+        if(check_horizontal_win(input) or check_vertical_win(input)):
+            print("Spiel gewonnen")
+        elif(check_draw()):
+            print("Unentschieden")
+        else:
+            print("Noch nicht gewonnen")
+        
+        
+    
     match input:
         case 1:
-            pass
+            if(check_horizontal_win(input) or check_vertical_win(input) or check_diagonal_win(input)):
+                print("Spiel gewonnen")
+            elif(check_draw()):
+                print("Unentschieden")
+            else:
+                print("Noch nicht gewonnen")
         case 2:
-            pass
+            if(check_horizontal_win(input) or check_vertical_win(input)):
+                print("Spiel gewonnen")
+            elif(check_draw()):
+                print("Unentschieden")
+            else:
+                print("Noch nicht gewonnen")
         case 3:
-            pass
+            if(check_horizontal_win(input) or check_vertical_win(input) or check_diagonal_win(input)):
+                print("Spiel gewonnen")
+            elif(check_draw()):
+                print("Unentschieden")
+            else:
+                print("Noch nicht gewonnen")
         case 4:
-            pass
+            if(check_horizontal_win(input) or check_vertical_win(input)):
+                print("Spiel gewonnen")
+            elif(check_draw()):
+                print("Unentschieden")
+            else:
+                print("Noch nicht gewonnen")
         case 5:
             pass
         case 6:
@@ -136,8 +174,10 @@ def check_draw():
     else:
         if(filed_is_full == 9):
             print("Keine Möglichkeit mehr")
+            return True
         else:
             print("Es gibt noch freie Felder")
+            return False
 
 def choose_field():
     global current_input
