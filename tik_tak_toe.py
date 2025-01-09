@@ -75,19 +75,19 @@ def check_win_condition(input):
 def check_horizontal_win(input):
     #check all horizontal win conditions for every row
     if (input == 1 or input == 4 or input == 7):
-        if (game_field[input-1] and game_field[input] and game_field[input+1] == x_or_o):
+        if (game_field[input-1] == x_or_o and game_field[input] == x_or_o and game_field[input+1] == x_or_o):
             print("Spiel Gewonnen")
             return True
         else: 
             return False
     elif(input == 2 or input == 5 or input == 8):
-        if(game_field[input-1] and game_field[input-2] and game_field[input] == x_or_o):
+        if(game_field[input-1] == x_or_o and game_field[input-2] == x_or_o and game_field[input] == x_or_o):
             print("Spiel Gewonnen")
             return True
         else: 
             return False
     elif(input == 3 or input == 6 or input == 9):
-        if(game_field[input-1] and game_field[input-2] and game_field[input-3]):
+        if(game_field[input-1] == x_or_o and game_field[input-2] == x_or_o and game_field[input-3] == x_or_o):
             print("Spiel gewonnen")
             return True
         else: 
@@ -96,19 +96,19 @@ def check_horizontal_win(input):
 def check_vertical_win(input):
     #check all vertical win conditions for every colum
     if(input == 1 or input == 2 or input == 3):
-        if(game_field[input-1] and game_field[input+2] and game_field[input+5] == x_or_o):
+        if(game_field[input-1] == x_or_o and game_field[input+2] == x_or_o and game_field[input+5] == x_or_o):
             print("Spiel gewonnen")
             return True
         else: 
             return False
     elif(input == 4 or input == 5 or input == 6):
-        if(game_field[input-1] and game_field[input-4] and game_field[input+2] == x_or_o):
+        if(game_field[input-1] == x_or_o and game_field[input-4] == x_or_o and game_field[input+2] == x_or_o):
             print("Spiel gewonnen")
             return True
         else: 
             return False
     elif(input == 7 or input == 8 or input == 9):
-        if(game_field[input-1] and game_field[input-3] and game_field[input-6] == x_or_o):
+        if(game_field[input-1] == x_or_o and game_field[input-3] == x_or_o and game_field[input-6] == x_or_o):
             print("Spiel gewonnen")
             return True
         else: 
