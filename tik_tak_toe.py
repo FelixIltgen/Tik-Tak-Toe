@@ -116,19 +116,31 @@ def check_vertical_win(input):
 
 def check_diagonal_win(input):
     # check all diagonal win conditions
-    if(input == 1 or input == 9):
-        print(f"{game_field[input-1]},{game_field[input+3]},{game_field[input-5]} ,{game_field[input+7]} ,{game_field[input-9]}")
-        if(game_field[input-1] and game_field[input+3] == x_or_o or game_field[input-5] == x_or_o and game_field[input+7] == x_or_o or game_field[input-9] == x_or_o):
-            print("Spiel gewonnen")
-            return True
-        else: 
-            return False
-    elif(input == 3 or input == 7):
-        if(game_field[input-1] and game_field[input+1] == x_or_o or game_field[input-3] == x_or_o and game_field[input+3] == x_or_o or game_field[input-5] == x_or_o):
-            print("Spiel gewonnen")
-            return True
-        else: 
-            return False
+    match input:
+        case 1:
+            if(game_field[input-1] == x_or_o and game_field[input+3] == x_or_o and game_field[input+7] == x_or_o):
+                print("Spiel gewonnen")
+                return True
+            else: 
+                return False   
+        case 9:
+            if(game_field[input-1] == x_or_o and game_field[input-5] == x_or_o and game_field[input-9] == x_or_o):
+                print("Spiel gewonnen")
+                return True
+            else: 
+                return False  
+        case 3:
+            if(game_field[input-1] == x_or_o and game_field[input+1] == x_or_o and game_field[input+3] == x_or_o):
+                print("Spiel gewonnen")
+                return True
+            else: 
+                return False
+        case 7:
+            if(game_field[input-1] == x_or_o and game_field[input-3] == x_or_o and game_field[input-5] == x_or_o):
+                print("Spiel gewonnen")
+                return True
+            else: 
+                return False
 
 def check_draw():
     global game_field
