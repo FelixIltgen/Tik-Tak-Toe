@@ -63,6 +63,7 @@ def check_win_condition(input):
     
     if(input == 1 or input == 3 or input == 5 or input == 7 or input == 9):
         if(check_horizontal_win(input) or check_vertical_win(input) or check_diagonal_win(input)):
+            print_game_field()
             print("Spiel gewonnen")
         elif(check_draw()):
             print("Unentschieden")
@@ -70,6 +71,7 @@ def check_win_condition(input):
             switch_player()        
     elif(input == 2 or input == 4 or input == 6 or input == 8):
         if(check_horizontal_win(input) or check_vertical_win(input)):
+            print_game_field()
             print("Spiel gewonnen")
         elif(check_draw()):
             print("Unentschieden")
