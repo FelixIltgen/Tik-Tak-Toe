@@ -2,6 +2,7 @@ import numpy as num
 import os
 import random
 import msvcrt as m
+import sys
 
 game_field=[1,2,3,
             4,5,6,
@@ -17,7 +18,8 @@ def start_game():
     print("Drücke eine Taste, um das Spiel zu Starten...")
     print("----------------------------------------")
     #Wait for any user input
-    m.getch() 
+    m.getch()
+    delete_line(2)
     choose_first_player() 
 
 def choose_first_player():
@@ -48,11 +50,13 @@ def switch_player():
         print("Spieler O ist an der Reihe!")
         current_player = False
         x_or_o = "O"
+        print_game_field()
         choose_field()
     else:
         print("Spieler X ist an der Reihe!")
         current_player = True
         x_or_o = "X"
+        print_game_field()
         choose_field()
         
 def check_win_condition(input):
@@ -170,15 +174,22 @@ def choose_field():
         
     # Check if choosen field is availabel  
     if( current_input in game_field):
-        print("Zahl passt")
         game_field.remove(current_input)
         game_field.insert(current_input-1, x_or_o)
-        print_game_field()
+        delete_line(10)
+        #print_game_field()
         check_win_condition(current_input)
     else:
         print("Das Feld ist bereits vergeben!")
         choose_field()
 
+def delete_line(count):
+    for i in range(count):
+        #cursor up one line
+        sys.stdout.write('\x1b[1A')
+
+        #delete last line
+        sys.stdout.write('\x1b[2K')
     
     
 #prints all tree rows of the gamfield list
@@ -187,11 +198,13 @@ def print_game_field():
     #delete previous printed fields 
     #os.system("cls") # => not all fields only specified ones
 
+    print("---------")
     print(f"{game_field[0]} | {game_field[1]} | {game_field[2]}")
     print(f"--+---+--")
     print(f"{game_field[3]} | {game_field[4]} | {game_field[5]}")
     print(f"--+---+--")
     print(f"{game_field[6]} | {game_field[7]} | {game_field[8]}")
+    print("---------")
 
 start_game()
 
