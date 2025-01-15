@@ -198,5 +198,7 @@ start_game()
 #To do's: 
 # - 
 # - Zuvor gezeichnete Linien löschen
+#   - delete funktion schreiben 
+#   - Reienfolge anpassen (spielfeld erst später zeichnen)
 # - Keine Möglichkeit mehr zu gewinnen
 
