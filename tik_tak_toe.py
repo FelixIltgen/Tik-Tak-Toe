@@ -75,6 +75,7 @@ def check_win_condition(input):
             print("Spiel gewonnen")
         elif(check_draw()):
             print("Unentschieden")
+            print_game_field()
         else:
             switch_player()
         
