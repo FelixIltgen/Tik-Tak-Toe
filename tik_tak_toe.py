@@ -1,34 +1,44 @@
-import numpy as num
 import os
 import random
 import msvcrt as m
 import sys
 
+#gamfield array 
 game_field=[1,2,3,
             4,5,6,
             7,8,9,]
 
+# current player is used to determine the diferent players
 current_player = None
+
+# stores user input for calculation
 current_input = int
-x_or_o = "X"
+
+# stores X/O to calculate
+x_or_o = ""
+
 
 def start_game():
-    #Delete previous printed lines
+    #Delete previous printed lines in console
     os.system("cls")
     print("Drücke eine Taste, um das Spiel zu Starten...")
     print("----------------------------------------")
     #Wait for any user input
     m.getch()
+    # delete unnecessary lines 
     delete_line(2)
     choose_first_player() 
 
 def choose_first_player():
-    #use global variabels
+    #Use global variables in thise scope
     global current_player
     global x_or_o
     
+    #Assign random player to start 
     print("Die Spielreihenfolge wird zufällig zugewiesen!")
     random_int = random.randint(0,1)
+    
+    # for each player set the necessary variables
     if (random_int == 0):
         print("Spiler O beginnt!")
         current_player = False
@@ -43,9 +53,11 @@ def choose_first_player():
         choose_field()
         
 def switch_player():
+    #Use global variables in thise scope
     global x_or_o
     global current_player
     
+    #switch player to the other player and set necessary variables
     if (current_player is True):
         print("Spieler O ist an der Reihe!")
         current_player = False
@@ -60,8 +72,9 @@ def switch_player():
         choose_field()
         
 def check_win_condition(input):
-    
+    # for input 1, 3, 5, 7, 9 check all win conditions
     if(input == 1 or input == 3 or input == 5 or input == 7 or input == 9):
+        #check win condition, If true => game win else check for draw
         if(check_horizontal_win(input) or check_vertical_win(input) or check_diagonal_win(input)):
             print_game_field()
             print("Spiel gewonnen")
@@ -69,20 +82,23 @@ def check_win_condition(input):
             print_game_field()
             print("Unentschieden")
         else:
-            switch_player()        
+            switch_player()
+            
+    # check only horizontal an vertical win conditions       
     elif(input == 2 or input == 4 or input == 6 or input == 8):
+        #check win condition, If true => game win else check for draw
         if(check_horizontal_win(input) or check_vertical_win(input)):
             print_game_field()
             print("Spiel gewonnen")
         elif(check_draw()):
             print_game_field()
-            print("Unentschieden")
-            
+            print("Unentschieden")  
         else:
             switch_player()
         
 def check_horizontal_win(input):
-    #check all horizontal win conditions for every row
+    #check all horizontal win conditions for every colum in the gamefield
+    #Compare input in current input with value in the horizontal neighboring fields => return true/false
     if (input == 1 or input == 4 or input == 7):
         if (game_field[input-1] == x_or_o and game_field[input] == x_or_o and game_field[input+1] == x_or_o):
             return True
@@ -100,7 +116,8 @@ def check_horizontal_win(input):
             return False
     
 def check_vertical_win(input):
-    #check all vertical win conditions for every colum
+    #check all vertical win conditions for every row in the gamefield
+    #Compare input in current input with value in the vertically neighboring fields => return true/false
     if(input == 1 or input == 2 or input == 3):
         if(game_field[input-1] == x_or_o and game_field[input+2] == x_or_o and game_field[input+5] == x_or_o):
             return True
@@ -118,7 +135,8 @@ def check_vertical_win(input):
             return False
 
 def check_diagonal_win(input):
-    # check all diagonal win conditions
+    # check all diagonal win conditions in the gamefield
+    # Compare input in current input with value in the diagonally neighboring fields => return true/false
     match input:
         case 1:
             if(game_field[input-1] == x_or_o and game_field[input+3] == x_or_o and game_field[input+7] == x_or_o):
@@ -142,30 +160,40 @@ def check_diagonal_win(input):
                 return False
 
 def check_draw():
+    #Use global variables in thise scope
     global game_field
     global filed_is_full
+    
+    #Locally used
     filed_is_full = 0
+    
+    #Check each entry if entry is a string (assigned) or a int (unassigned)
     for entry in game_field:
         if (isinstance(entry,int)):
             pass
         else:
+            # If field is assigned add one to filed_is_full
             filed_is_full += 1
     else:
+        #If field is full => return true/false
         if(filed_is_full == 9):
-            #print("Keine Möglichkeit mehr")
             return True
         else:
-            #print("Es gibt noch freie Felder")
             return False
 
 def choose_field():
+    #Use global variables in thise scope
     global current_input
-    #Try user input. Check if input is valid.
+    
+    #Try given user input, only string allowed
     try:
+        #Request user input 
         current_input = int(input("Wähle ein freies Feld, durch eingabe der Angezeigten zahlen:"))
     except :
+        #Point out error and request user input again 
         print("Bitte gebe eine Valide Ganzzahl ein!")
-        current_input = int(input("Wähle ein freies Feld, durch eingabe der Angezeigten zahlen:"))
+        #########################################################################################################choose_field()
+        #current_input = int(input("Wähle ein freies Feld, durch eingabe der Angezeigten zahlen:"))
         
     # Check if choosen field is availabel  
     if( current_input in game_field):
@@ -205,4 +233,5 @@ start_game()
 
 #To do's: 
 # - unentschieden zu spät angezeigt
+# - Fehler beim mehrmaligen eingeben von flaschen user input
 
