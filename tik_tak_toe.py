@@ -17,7 +17,6 @@ current_input = int
 #Stores X/O to calculate
 x_or_o = ""
 
-
 def start_game():
     #Delete previous printed lines in console
     os.system("cls")
@@ -192,10 +191,11 @@ def choose_field():
         #Request user input 
         current_input = int(input("Wähle ein freies Feld, durch eingabe der Angezeigten zahlen:"))
     except :
-        #Point out error and request user input again 
+        #Point out error and request user input again
+        delete_line(1)
         print("Bitte gebe eine Valide Ganzzahl ein!")
         choose_field()
-        
+          
     # Check if choosen field is availabel  
     if( current_input in game_field):
         #Remove current value in array 
@@ -236,6 +236,6 @@ def print_game_field():
 start_game()
 
 #To do's: 
-# - unentschieden zu spät angezeigt
-# - Fehler beim mehrmaligen eingeben von flaschen user input
+# - Namens eingabe für Spieler 
+# - Restart Funktion
 
