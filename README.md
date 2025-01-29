@@ -1,7 +1,7 @@
 # TicTacToe
-### Ein Kleines TicTacToe Game geschrieben in Python. 
+### Ein kleines TicTacToe Game geschrieben in Python. 
 
-Ziel dises Projektes war es, die Programmiersprache Python zu lernen und die Basics in Python zu verstehen bzw. meine Kentnisse aufzufrischen. Kern des Projektes ist ein einfaches vollfunktionsfähiges TicTacToe Spiel welches über die Console einer IDE wie VS Code ausgeführt und gespielt werden kann.
+Ziel dieses Projektes war es, die Programmiersprache Python zu lernen und die Basics in Python zu verstehen bzw. meine Kenntnisse aufzufrischen. Kern des Projektes ist ein einfaches vollfunktionsfähiges TicTacToe Spiel, welches über die Konsole einer IDE wie VS Code ausgeführt und gespielt werden kann.
 
 Folgende Features sind enthalten:
 
@@ -19,16 +19,16 @@ Python 3.13.0
 * [Python](https://www.python.org/downloads/) Version 3.13 oder höher.
 * Eine IDE bspw. [Visual Studio Code](https://code.visualstudio.com/)* oder eine ähnliche Python fähige IDE.
 
-### Schritte der instalation
+### Schritte der Installation
 1. Clone dieses Repo in einen beliebigen Ordner deiner Wahl.
 2. Öffne in VS Code die Datei **tik_tak_toe.py**
-3. Starte die Datei und folge den Anweisungen in der Console.
+3. Starte die Datei und folge den Anweisungen in der Konsole.
 
 ## * Visual Studio Code Installation
-1. Insatliere VS Code wie vom Instalationsmanager vorgegeben.
+1. Installiere VS Code wie vom Installationsmanager vorgegeben.
 2. Starte das Programm und navigiere am linken Rand zum Reiter **Extensions**
 3. Suche im oberen Feld nach der **Python** Extension.
-4. Fahre nun mit den oben gennanten Schritten fort. 
+4. Fahre nun mit den oben genannten Schritten fort. 
 
 
 
