@@ -17,7 +17,12 @@ current_input = int
 #Stores X/O to calculate
 x_or_o = ""
 
+player_one = None
+
+player_two = None
+
 def start_game():
+    global player_one, player_two
     #Delete previous printed lines in console
     os.system("cls")
     print("Drücke eine Taste, um das Spiel zu Starten...")
@@ -26,14 +31,16 @@ def start_game():
     #Wait for any user input
     m.getch()
     
+    player_one = input("Spieler 1, Bitte gebe deinen Namen ein: ")
+    player_two = input("Spieler 2, Bitte gebe deinen Namen ein: ")
     #Delete unnecessary lines 
-    delete_line(2)
+    delete_line(4)
     choose_first_player() 
 
+    
 def choose_first_player():
     #Use global variables in thise scope
-    global current_player
-    global x_or_o
+    global current_player, x_or_o
     
     #Assign random player to start 
     print("Die Spielreihenfolge wird zufällig zugewiesen!")
@@ -41,33 +48,32 @@ def choose_first_player():
     
     #For each player set the necessary variables
     if (random_int == 0):
-        print("Spiler O beginnt!")
-        current_player = False
+        print(f"{player_two} beginnt das Spiel mit O")
+        current_player = player_two
         x_or_o = "O"
         print_game_field()
         choose_field()
     else:
-        print("Spieler X beginnt")
-        current_player = True
+        print(f"{player_one} beginnt das Spiel mit X")
+        current_player = player_one
         x_or_o = "X"
         print_game_field()
         choose_field()
         
 def switch_player():
     #Use global variables in thise scope
-    global x_or_o
-    global current_player
+    global x_or_o, current_player
     
     #Switch player to the other player and set necessary variables
-    if (current_player is True):
-        print("Spieler O ist an der Reihe!")
-        current_player = False
+    if (current_player is player_one):
+        print(f"{player_two} ist an der Reihe!")
+        current_player = player_two
         x_or_o = "O"
         print_game_field()
         choose_field()
     else:
-        print("Spieler X ist an der Reihe!")
-        current_player = True
+        print(f"{player_one} ist an der Reihe!")
+        current_player = player_one
         x_or_o = "X"
         print_game_field()
         choose_field()
@@ -78,7 +84,7 @@ def check_win_condition(input):
         #Check win condition, If true => game win else check for draw
         if(check_horizontal_win(input) or check_vertical_win(input) or check_diagonal_win(input)):
             print_game_field()
-            print("Spiel gewonnen")
+            print(f"{current_player} hat das Spiel gewonnen")
         elif(check_draw()):
             print_game_field()
             print("Unentschieden")
@@ -90,7 +96,7 @@ def check_win_condition(input):
         #Check win condition, If true => game win else check for draw
         if(check_horizontal_win(input) or check_vertical_win(input)):
             print_game_field()
-            print("Spiel gewonnen")
+            print(f"{current_player} hat das Spiel gewonnen")
         elif(check_draw()):
             print_game_field()
             print("Unentschieden")  
@@ -162,8 +168,7 @@ def check_diagonal_win(input):
 
 def check_draw():
     #Use global variables in thise scope
-    global game_field
-    global filed_is_full
+    global game_field, filed_is_full
     
     #Locally used
     filed_is_full = 0
