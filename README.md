@@ -13,7 +13,7 @@ Geschrieben wurde das Projekt mit:
 ```
 Python 3.13.0
 ```
-![Image](https://github.com/user-attachments/assets/fcb77d77-6caa-4404-b3e3-5aedca58005c)
+![Image](https://github.com/user-attachments/assets/0e551fd6-9458-402b-a432-e2f17868cc91)
 ## Instalation
 ### Benötigte Softwear
 * [Python](https://www.python.org/downloads/) Version 3.13 oder höher.
