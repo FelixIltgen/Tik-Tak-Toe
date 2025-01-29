@@ -241,6 +241,5 @@ def print_game_field():
 start_game()
 
 #To do's: 
-# - Namens eingabe für Spieler 
 # - Restart Funktion
 
