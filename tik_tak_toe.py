@@ -255,5 +255,6 @@ def print_game_field():
 start_game()
 
 #To do's: 
-# - Restart Funktion
+# - Punkte für die Spiel session speichern
+# - Punkte lokal speichern
 
