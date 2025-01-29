@@ -85,9 +85,11 @@ def check_win_condition(input):
         if(check_horizontal_win(input) or check_vertical_win(input) or check_diagonal_win(input)):
             print_game_field()
             print(f"{current_player} hat das Spiel gewonnen")
+            start_again()
         elif(check_draw()):
             print_game_field()
             print("Unentschieden")
+            start_again() 
         else:
             switch_player()
             
@@ -97,9 +99,11 @@ def check_win_condition(input):
         if(check_horizontal_win(input) or check_vertical_win(input)):
             print_game_field()
             print(f"{current_player} hat das Spiel gewonnen")
+            start_again()
         elif(check_draw()):
             print_game_field()
-            print("Unentschieden")  
+            print("Unentschieden") 
+            start_again() 
         else:
             switch_player()
         
@@ -217,7 +221,17 @@ def choose_field():
     else:
         print("Das Feld ist bereits vergeben!")
         choose_field()
-
+        
+def start_again():
+    global game_field
+    start_again = input("Möchtet ihr nochmal Spielen? J/N: ")
+    if(start_again is "J" or start_again is "j"):
+        game_field=[1,2,3,4,5,6,7,8,9,]
+        delete_line(9)
+        choose_first_player()
+    else:
+        print("Spiel beendet")
+        
 def delete_line(count):
     for i in range(count):
         #Cursor up one line
