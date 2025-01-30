@@ -21,6 +21,9 @@ player_one = None
 
 player_two = None
 
+points_player_one = 0
+points_player_two = 0
+
 def start_game():
     global player_one, player_two
     #Delete previous printed lines in console
@@ -83,6 +86,7 @@ def check_win_condition(input):
     if(input == 1 or input == 3 or input == 5 or input == 7 or input == 9):
         #Check win condition, If true => game win else check for draw
         if(check_horizontal_win(input) or check_vertical_win(input) or check_diagonal_win(input)):
+            add_points(current_player)
             print_game_field()
             print(f"{current_player} hat das Spiel gewonnen")
             start_again()
@@ -97,6 +101,7 @@ def check_win_condition(input):
     elif(input == 2 or input == 4 or input == 6 or input == 8):
         #Check win condition, If true => game win else check for draw
         if(check_horizontal_win(input) or check_vertical_win(input)):
+            add_points(current_player)
             print_game_field()
             print(f"{current_player} hat das Spiel gewonnen")
             start_again()
@@ -214,7 +219,7 @@ def choose_field():
         game_field.insert(current_input-1, x_or_o)
         
         #Delet current printed gamefield
-        delete_line(10)
+        delete_line(11)
         
         #Start checking win conditions
         check_win_condition(current_input)
@@ -227,9 +232,10 @@ def start_again():
     start_again = input("Möchtet ihr nochmal Spielen? J/N: ")
     if(start_again is "J" or start_again is "j"):
         game_field=[1,2,3,4,5,6,7,8,9,]
-        delete_line(9)
+        delete_line(10)
         choose_first_player()
     else:
+        delete_line(10)
         print("Spiel beendet")
         
 def delete_line(count):
@@ -239,6 +245,13 @@ def delete_line(count):
 
         #Delete last line
         sys.stdout.write('\x1b[2K')
+
+def add_points(currentplayer):
+    global points_player_one, points_player_two
+    if(currentplayer == player_one):
+        points_player_one += 1
+    else:
+        points_player_two +=1
     
     
 #Print gamfield 
@@ -251,12 +264,10 @@ def print_game_field():
     print(f"--+---+--")
     print(f"{game_field[6]} | {game_field[7]} | {game_field[8]}")
     print("---------")
-
+    print(f"Aktueller Punktestand | {player_one}: {points_player_one} | {player_two}: {points_player_two}")
 start_game()
 
 #To do's: 
 # - Punkte für die Spiel session speichern
-# - Punkte lokal speichern
-# - Namens eingabe für Spieler 
-# - Restart Funktion
+# - Punkte lokal speichern 
 
