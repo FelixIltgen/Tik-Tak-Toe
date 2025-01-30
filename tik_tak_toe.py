@@ -34,6 +34,14 @@ def start_game():
     #Wait for any user input
     m.getch()
     
+    yes_no = input("Möchtest du das letzte Spiel wieder aufnehmen?")
+    if(yes_no == "J" or yes_no == "j"):
+        pass
+        #Load file
+    else:
+        pass
+        #Start game
+    
     player_one = input("Spieler 1, Bitte gebe deinen Namen ein: ")
     player_two = input("Spieler 2, Bitte gebe deinen Namen ein: ")
     #Delete unnecessary lines 
@@ -252,7 +260,8 @@ def add_points(currentplayer):
         points_player_one += 1
     else:
         points_player_two +=1
-    
+
+ 
     
 #Print gamfield 
 def print_game_field():
@@ -265,8 +274,14 @@ def print_game_field():
     print(f"{game_field[6]} | {game_field[7]} | {game_field[8]}")
     print("---------")
     print(f"Aktueller Punktestand | {player_one}: {points_player_one} | {player_two}: {points_player_two}")
+    
 start_game()
 
+
+
 #To do's: 
-# - Punkte & Name lokal speichern 
+# - Punkte & Name lokal speichern
+#   - Datenspeichern
+#   - Datenlesen
+#   - Fragen ob Spiel geladen werden soll
 
