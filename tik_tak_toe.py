@@ -268,6 +268,5 @@ def print_game_field():
 start_game()
 
 #To do's: 
-# - Punkte für die Spiel session speichern
-# - Punkte lokal speichern 
+# - Punkte & Name lokal speichern 
 
