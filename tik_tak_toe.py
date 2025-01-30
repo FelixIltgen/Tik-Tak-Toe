@@ -140,7 +140,7 @@ def check_vertical_win(input):
         else: 
             return False
     elif(input == 7 or input == 8 or input == 9):
-        if(game_field[input-1] == x_or_o and game_field[input-3] == x_or_o and game_field[input-6] == x_or_o):
+        if(game_field[input-1] == x_or_o and game_field[input-4] == x_or_o and game_field[input-7] == x_or_o):
             return True
         else: 
             return False
