@@ -257,4 +257,6 @@ start_game()
 #To do's: 
 # - Punkte für die Spiel session speichern
 # - Punkte lokal speichern
+# - Namens eingabe für Spieler 
+# - Restart Funktion
 

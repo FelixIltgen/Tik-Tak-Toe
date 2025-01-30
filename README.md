@@ -5,7 +5,7 @@ Ziel dieses Projektes war es, die Programmiersprache Python zu lernen und die Ba
 
 Folgende Features sind enthalten:
 
-* Eigene Spielernamen
+* 
 *
 *
 
