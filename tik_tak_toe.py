@@ -33,14 +33,15 @@ def start_game():
     
     #Wait for any user input
     m.getch()
-    
-    yes_no = input("Möchtest du das letzte Spiel wieder aufnehmen?")
-    if(yes_no == "J" or yes_no == "j"):
-        pass
-        #Load file
-    else:
-        pass
-        #Start game
+    delete_line(2)
+    ask_user_yes_no("Möchtest du das letzte Spiel wieder aufnehmen?")
+    # yes_no = input("Möchtest du das letzte Spiel wieder aufnehmen?")
+    # if(yes_no == "J" or yes_no == "j"):
+    #     pass
+    #     #Load file
+    # else:
+    #     pass
+    #     #Start game
     
     player_one = input("Spieler 1, Bitte gebe deinen Namen ein: ")
     player_two = input("Spieler 2, Bitte gebe deinen Namen ein: ")
@@ -260,6 +261,17 @@ def add_points(currentplayer):
         points_player_one += 1
     else:
         points_player_two +=1
+
+def ask_user_yes_no(message=str):
+    yes_no = input(message)
+    if(yes_no =="J" or yes_no == "j"):
+        return True
+    elif(yes_no == "N" or yes_no == "n"):
+        return False
+    else:
+        delete_line(1)
+        print("Bitte gebe nur J oder N ein!")
+        ask_user_yes_no(message)
 
  
     
