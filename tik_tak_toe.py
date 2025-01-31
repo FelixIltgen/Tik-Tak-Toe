@@ -42,6 +42,7 @@ def start_game():
     # else:
     #     pass
     #     #Start game
+    #Test branch 
     
     player_one = input("Spieler 1, Bitte gebe deinen Namen ein: ")
     player_two = input("Spieler 2, Bitte gebe deinen Namen ein: ")
