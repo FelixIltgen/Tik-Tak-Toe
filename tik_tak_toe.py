@@ -34,15 +34,7 @@ def start_game():
     #Wait for any user input
     m.getch()
     delete_line(2)
-    ask_user_yes_no("Möchtest du das letzte Spiel wieder aufnehmen?")
-    # yes_no = input("Möchtest du das letzte Spiel wieder aufnehmen?")
-    # if(yes_no == "J" or yes_no == "j"):
-    #     pass
-    #     #Load file
-    # else:
-    #     pass
-    #     #Start game
-    #Test branch 
+    ask_user_yes_no("Möchtest du das letzte Spiel wieder aufnehmen? J/N: ")
     
     player_one = input("Spieler 1, Bitte gebe deinen Namen ein: ")
     player_two = input("Spieler 2, Bitte gebe deinen Namen ein: ")
@@ -239,14 +231,20 @@ def choose_field():
         
 def start_again():
     global game_field
-    start_again = input("Möchtet ihr nochmal Spielen? J/N: ")
-    if(start_again is "J" or start_again is "j"):
+    if(ask_user_yes_no("Möchtet ihr nochmal Spielen? J/N:")):
         game_field=[1,2,3,4,5,6,7,8,9,]
         delete_line(10)
         choose_first_player()
     else:
         delete_line(10)
         print("Spiel beendet")
+
+    # start_again = input("Möchtet ihr nochmal Spielen? J/N: ")
+    # if(start_again is "J" or start_again is "j"):
+        
+    # else:
+    #     delete_line(10)
+    #     print("Spiel beendet")
         
 def delete_line(count):
     for i in range(count):
