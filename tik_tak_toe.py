@@ -238,14 +238,7 @@ def start_again():
     else:
         delete_line(10)
         print("Spiel beendet")
-
-    # start_again = input("Möchtet ihr nochmal Spielen? J/N: ")
-    # if(start_again is "J" or start_again is "j"):
-        
-    # else:
-    #     delete_line(10)
-    #     print("Spiel beendet")
-        
+    
 def delete_line(count):
     for i in range(count):
         #Cursor up one line
@@ -294,5 +287,4 @@ start_game()
 # - Punkte & Name lokal speichern
 #   - Datenspeichern
 #   - Datenlesen
-#   - Fragen ob Spiel geladen werden soll
 
