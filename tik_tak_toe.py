@@ -34,7 +34,14 @@ def start_game():
     #Wait for any user input
     m.getch()
     delete_line(2)
-    ask_user_yes_no("Möchtest du das letzte Spiel wieder aufnehmen? J/N: ")
+    if(ask_user_yes_no("Möchtest du das letzte Spiel wieder aufnehmen? J/N: ")):
+        if(check_for_file()):
+            print("Spielerdaten werden geladen")
+            #Hier kommt dann Funktion zum laden
+        else:
+            print("Es konnten keine Daten gefunden werden!")
+    else:
+        pass
     
     player_one = input("Spieler 1, Bitte gebe deinen Namen ein: ")
     player_two = input("Spieler 2, Bitte gebe deinen Namen ein: ")
@@ -264,9 +271,21 @@ def ask_user_yes_no(message=str):
         delete_line(1)
         print("Bitte gebe nur J oder N ein!")
         ask_user_yes_no(message)
+        
+def check_for_file():
 
- 
+    file_name = "last_game.txt"
+    current_path = os.path.abspath(file_name)
+    if(os.path.exists(current_path)):
+        return True
+    else:
+        return False
+
+def save_current_game_data(player_name_one=str, player_name_two=str, points_player_one=int, points_player_two=int):
+    pass
     
+    
+
 #Print gamfield 
 def print_game_field():
     
