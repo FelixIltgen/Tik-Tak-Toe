@@ -24,6 +24,9 @@ player_two = None
 points_player_one = 0
 points_player_two = 0
 
+file_name = "last_game.txt"
+current_path = os.path.abspath(file_name)
+
 def start_game():
     global player_one, player_two
     #Delete previous printed lines in console
@@ -39,9 +42,8 @@ def start_game():
             print("Spielerdaten werden geladen")
             #Hier kommt dann Funktion zum laden
         else:
+            save_current_game_data("Felix",5,"Tom",4)
             print("Es konnten keine Daten gefunden werden!")
-    else:
-        pass
     
     player_one = input("Spieler 1, Bitte gebe deinen Namen ein: ")
     player_two = input("Spieler 2, Bitte gebe deinen Namen ein: ")
@@ -273,19 +275,19 @@ def ask_user_yes_no(message=str):
         ask_user_yes_no(message)
         
 def check_for_file():
-
-    file_name = "last_game.txt"
-    current_path = os.path.abspath(file_name)
+    global current_path
     if(os.path.exists(current_path)):
         return True
     else:
         return False
 
-def save_current_game_data(player_name_one=str, player_name_two=str, points_player_one=int, points_player_two=int):
-    pass
+def save_current_game_data(player_one=str,points_player_one=int, player_two=str,points_player_two= int):
+    global current_path
+    string_to_save = f"{player_one}\n{points_player_one}\n{player_two}\n{points_player_two}" 
     
-    
-
+    with open(current_path,"w") as f:
+        f.write(string_to_save)
+        f.close()        
 #Print gamfield 
 def print_game_field():
     
