@@ -42,7 +42,6 @@ def start_game():
             print("Spielerdaten werden geladen")
             #Hier kommt dann Funktion zum laden
         else:
-            save_current_game_data("Felix",5,"Tom",4)
             print("Es konnten keine Daten gefunden werden!")
     
     player_one = input("Spieler 1, Bitte gebe deinen Namen ein: ")
@@ -239,14 +238,19 @@ def choose_field():
         choose_field()
         
 def start_again():
-    global game_field
+    global game_field,player_one, points_player_one, player_two, points_player_two
     if(ask_user_yes_no("Möchtet ihr nochmal Spielen? J/N:")):
         game_field=[1,2,3,4,5,6,7,8,9,]
         delete_line(10)
         choose_first_player()
     else:
-        delete_line(10)
-        print("Spiel beendet")
+        if(ask_user_yes_no("Möchtest du das Spiel speichern? J/N")):
+            save_current_game_data(player_one,points_player_one,player_two,points_player_two)
+            delete_line(11)
+            print("Spiel gespeichert")
+        else:
+            delete_line(10)
+            print("Spiel beendet")
     
 def delete_line(count):
     for i in range(count):
@@ -288,7 +292,9 @@ def save_current_game_data(player_one=str,points_player_one=int, player_two=str,
     with open(current_path,"w") as f:
         f.write(string_to_save)
         f.close()        
-#Print gamfield 
+
+def read_current_game_data():
+    pass
 def print_game_field():
     
     print("---------")
@@ -306,7 +312,6 @@ start_game()
 
 #To do's: 
 # - Punkte & Name lokal speichern
-#   - Datenspeichern
 #   - Datenlesen
 ###
 
