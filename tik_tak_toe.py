@@ -37,10 +37,13 @@ def start_game():
     #Wait for any user input
     m.getch()
     delete_line(2)
+
     if(ask_user_yes_no("Möchtest du das letzte Spiel wieder aufnehmen? J/N: ")):
         if(check_for_file()):
             print("Spielerdaten werden geladen")
-            #Hier kommt dann Funktion zum laden
+            read_current_game_data(current_path)
+            delete_line(3)
+            choose_first_player()
         else:
             print("Es konnten keine Daten gefunden werden!")
     
@@ -238,14 +241,14 @@ def choose_field():
         choose_field()
         
 def start_again():
-    global game_field,player_one, points_player_one, player_two, points_player_two
+    global game_field,player_one, points_player_one, player_two, points_player_two, current_path
     if(ask_user_yes_no("Möchtet ihr nochmal Spielen? J/N:")):
         game_field=[1,2,3,4,5,6,7,8,9,]
         delete_line(10)
         choose_first_player()
     else:
         if(ask_user_yes_no("Möchtest du das Spiel speichern? J/N")):
-            save_current_game_data(player_one,points_player_one,player_two,points_player_two)
+            save_current_game_data(current_path,player_one,points_player_one,player_two,points_player_two)
             delete_line(11)
             print("Spiel gespeichert")
         else:
@@ -285,16 +288,25 @@ def check_for_file():
     else:
         return False
 
-def save_current_game_data(player_one=str,points_player_one=int, player_two=str,points_player_two= int):
-    global current_path
+def save_current_game_data(path=str,player_one=str,points_player_one=int, player_two=str,points_player_two= int):
+    
     string_to_save = f"{player_one}\n{points_player_one}\n{player_two}\n{points_player_two}" 
     
-    with open(current_path,"w") as f:
+    with open(path,"w") as f:
         f.write(string_to_save)
         f.close()        
 
-def read_current_game_data():
-    pass
+def read_current_game_data(path = str):
+    global player_one, player_two, points_player_one, points_player_two
+    with open(path) as file:
+            data = file.read().splitlines()
+            print(data)
+            player_one = data[0]
+            points_player_one = data[1]
+            player_two = data[2]
+            points_player_two = data[3]
+            file.close()  
+    
 def print_game_field():
     
     print("---------")
