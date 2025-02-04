@@ -17,13 +17,15 @@ current_input = int
 #Stores X/O to calculate
 x_or_o = ""
 
+#Player names
 player_one = None
-
 player_two = None
 
+#Player points
 points_player_one = 0
 points_player_two = 0
 
+#Filename & Path to save gamedata
 file_name = "last_game.txt"
 current_path = os.path.abspath(file_name)
 
@@ -38,8 +40,10 @@ def start_game():
     m.getch()
     delete_line(2)
 
+    #Ask user to load the priviouse game
     if(ask_user_yes_no("Möchtest du das letzte Spiel wieder aufnehmen? J/N: ")):
         if(check_for_file()):
+            #Load gamedata and start the game
             print("Spielerdaten werden geladen")
             read_current_game_data(current_path)
             delete_line(3)
@@ -242,19 +246,26 @@ def choose_field():
         
 def start_again():
     global game_field,player_one, points_player_one, player_two, points_player_two, current_path
+    #Ask player to play again
     if(ask_user_yes_no("Möchtet ihr nochmal Spielen? J/N:")):
+        #Reset gamefield and restat game
         game_field=[1,2,3,4,5,6,7,8,9,]
         delete_line(10)
         choose_first_player()
     else:
+        #Ask player to save current game
         if(ask_user_yes_no("Möchtest du das Spiel speichern? J/N")):
+            #Save all necessary data
             save_current_game_data(current_path,player_one,points_player_one,player_two,points_player_two)
             delete_line(11)
             print("Spiel gespeichert")
+            #Programme finish
         else:
             delete_line(10)
             print("Spiel beendet")
-    
+            #Programme finish
+
+#Delete given lines in the console  
 def delete_line(count):
     for i in range(count):
         #Cursor up one line
@@ -263,13 +274,15 @@ def delete_line(count):
         #Delete last line
         sys.stdout.write('\x1b[2K')
 
+#Add points to the corresponding player
 def add_points(currentplayer):
     global points_player_one, points_player_two
+    #Increment global points
     if(currentplayer == player_one):
         points_player_one += 1
     else:
         points_player_two +=1
-
+#Ask user Y/N question => return True/False
 def ask_user_yes_no(message=str):
     yes_no = input(message)
     if(yes_no =="J" or yes_no == "j"):
@@ -280,7 +293,8 @@ def ask_user_yes_no(message=str):
         delete_line(1)
         print("Bitte gebe nur J oder N ein!")
         ask_user_yes_no(message)
-        
+
+#Check if file exists      
 def check_for_file():
     global current_path
     if(os.path.exists(current_path)):
@@ -288,16 +302,19 @@ def check_for_file():
     else:
         return False
 
+#Save game data in txt files
 def save_current_game_data(path=str,player_one=str,points_player_one=int, player_two=str,points_player_two= int):
-    
+    #Formatted string to save in file
     string_to_save = f"{player_one}\n{points_player_one}\n{player_two}\n{points_player_two}" 
-    
+    #Open or creat file and store datastring
     with open(path,"w") as f:
         f.write(string_to_save)
         f.close()        
 
+#Read current game data txt file
 def read_current_game_data(path = str):
     global player_one, player_two, points_player_one, points_player_two
+    #Open game data file and assign data to corresponding variable
     with open(path) as file:
             data = file.read().splitlines()
             print(data)
@@ -319,11 +336,3 @@ def print_game_field():
     print(f"Aktueller Punktestand | {player_one}: {points_player_one} | {player_two}: {points_player_two}")
     
 start_game()
-
-
-
-#To do's: 
-# - Punkte & Name lokal speichern
-#   - Datenlesen
-###
-
