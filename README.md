@@ -5,9 +5,9 @@ Ziel dieses Projektes war es, die Programmiersprache Python zu lernen und die Ba
 
 Folgende Features sind enthalten:
 
-* 
-*
-*
+* Individuelle Namen der Spieler.
+* Lokale Speicherung des letzten Spiels.
+* Zufällig zugewiesene Spielreihenfolge.
 
 Geschrieben wurde das Projekt mit:
 ```
