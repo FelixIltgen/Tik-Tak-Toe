@@ -49,6 +49,7 @@ def start_game():
             delete_line(3)
             choose_first_player()
         else:
+            delete_line(1)
             print("Es konnten keine Daten gefunden werden!")
     
     player_one = input("Spieler 1, Bitte gebe deinen Namen ein: ")
@@ -220,7 +221,7 @@ def choose_field():
     #Try given user input, only string allowed
     try:
         #Request user input 
-        current_input = int(input("Wähle ein freies Feld, durch eingabe der Angezeigten zahlen:"))
+        current_input = int(input("Wähle ein freies Feld, durch eingabe der Angezeigten zahlen: "))
     except :
         #Point out error and request user input again
         delete_line(1)
@@ -247,14 +248,15 @@ def choose_field():
 def start_again():
     global game_field,player_one, points_player_one, player_two, points_player_two, current_path
     #Ask player to play again
-    if(ask_user_yes_no("Möchtet ihr nochmal Spielen? J/N:")):
+    if(ask_user_yes_no("Möchtet ihr nochmal Spielen? J/N: ")):
         #Reset gamefield and restat game
         game_field=[1,2,3,4,5,6,7,8,9,]
         delete_line(10)
         choose_first_player()
     else:
+        delete_line(1)
         #Ask player to save current game
-        if(ask_user_yes_no("Möchtest du das Spiel speichern? J/N")):
+        if(ask_user_yes_no("Möchtest du das Spiel speichern? J/N: ")):
             #Save all necessary data
             save_current_game_data(current_path,player_one,points_player_one,player_two,points_player_two)
             delete_line(11)
