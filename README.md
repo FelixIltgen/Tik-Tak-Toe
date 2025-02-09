@@ -1,4 +1,4 @@
-# TicTacToe
+# TicTacToe ❌⭕
 ### Ein kleines TicTacToe Game geschrieben in Python. 
 
 Ziel dieses Projektes war es, die Programmiersprache Python zu lernen und die Basics in Python zu verstehen bzw. meine Kenntnisse aufzufrischen. Kern des Projektes ist ein einfaches vollfunktionsfähiges TicTacToe Spiel, welches über die Konsole einer IDE wie VS Code ausgeführt und gespielt werden kann.
