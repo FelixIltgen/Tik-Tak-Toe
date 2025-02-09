@@ -33,12 +33,13 @@ def start_game():
     global player_one, player_two
     #Delete previous printed lines in console
     os.system("cls")
+    print("⭕ Tic-Tac-Toe ❌")
     print("Drücke eine Taste, um das Spiel zu Starten...")
     print("----------------------------------------")
     
     #Wait for any user input
     m.getch()
-    delete_line(2)
+    delete_line(3)
 
     #Ask user to load the priviouse game
     if(ask_user_yes_no("Möchtest du das letzte Spiel wieder aufnehmen? J/N: ")):
@@ -69,13 +70,13 @@ def choose_first_player():
     
     #For each player set the necessary variables
     if (random_int == 0):
-        print(f"{player_two} beginnt das Spiel mit O")
+        print(f"{player_two} beginnt das Spiel mit: ⭕")
         current_player = player_two
         x_or_o = "O"
         print_game_field()
         choose_field()
     else:
-        print(f"{player_one} beginnt das Spiel mit X")
+        print(f"{player_one} beginnt das Spiel mit: ❌")
         current_player = player_one
         x_or_o = "X"
         print_game_field()
@@ -106,7 +107,7 @@ def check_win_condition(input):
         if(check_horizontal_win(input) or check_vertical_win(input) or check_diagonal_win(input)):
             add_points(current_player)
             print_game_field()
-            print(f"{current_player} hat das Spiel gewonnen")
+            print(f"{current_player} hat das Spiel gewonnen 🎉🎊")
             start_again()
         elif(check_draw()):
             print_game_field()
@@ -121,11 +122,11 @@ def check_win_condition(input):
         if(check_horizontal_win(input) or check_vertical_win(input)):
             add_points(current_player)
             print_game_field()
-            print(f"{current_player} hat das Spiel gewonnen")
+            print(f"{current_player} hat das Spiel gewonnen 🎉🎊")
             start_again()
         elif(check_draw()):
             print_game_field()
-            print("Unentschieden") 
+            print("Unentschieden 😑") 
             start_again() 
         else:
             switch_player()
@@ -225,7 +226,7 @@ def choose_field():
     except :
         #Point out error and request user input again
         delete_line(1)
-        print("Bitte gebe eine Valide Ganzzahl ein!")
+        print("Bitte gebe eine Valide Ganzzahl ein! 😩")
         choose_field()
           
     # Check if choosen field is availabel  
@@ -242,7 +243,7 @@ def choose_field():
         #Start checking win conditions
         check_win_condition(current_input)
     else:
-        print("Das Feld ist bereits vergeben!")
+        print("Das Feld ist bereits vergeben! 😩")
         choose_field()
         
 def start_again():
@@ -260,11 +261,11 @@ def start_again():
             #Save all necessary data
             save_current_game_data(current_path,player_one,points_player_one,player_two,points_player_two)
             delete_line(11)
-            print("Spiel gespeichert")
+            print("Spiel gespeichert 👍🏻")
             #Programme finish
         else:
             delete_line(10)
-            print("Spiel beendet")
+            print("Spiel beendet 👋🏻")
             #Programme finish
 
 #Delete given lines in the console  
@@ -293,7 +294,7 @@ def ask_user_yes_no(message=str):
         return False
     else:
         delete_line(1)
-        print("Bitte gebe nur J oder N ein!")
+        print("Bitte gebe nur J oder N ein! 😡")
         ask_user_yes_no(message)
 
 #Check if file exists      
