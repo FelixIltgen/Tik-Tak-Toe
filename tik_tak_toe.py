@@ -4,9 +4,13 @@ import msvcrt as m
 import sys
 
 #Gamfield array 
-game_field=[1,2,3,
-            4,5,6,
-            7,8,9,]
+# frontend_game_field= ["1️⃣","2️⃣","3️⃣",
+#                       "4️⃣","5️⃣","6️⃣",
+#                       "7️⃣","8️⃣","9️⃣",]
+frontend_game_field = {"1":"1️⃣","2":"2️⃣","3":"3️⃣","4":"4️⃣","5":"5️⃣","6":"6️⃣","7":"7️⃣","8":"8️⃣","9":"9️⃣"}
+game_field = [1,2,3,
+              4,5,6,
+              7,8,9]
 
 #Current player is used to determine the diferent players
 current_player = None
@@ -72,13 +76,13 @@ def choose_first_player():
     if (random_int == 0):
         print(f"{player_two} beginnt das Spiel mit: ⭕")
         current_player = player_two
-        x_or_o = "O"
+        x_or_o = "⭕"
         print_game_field()
         choose_field()
     else:
         print(f"{player_one} beginnt das Spiel mit: ❌")
         current_player = player_one
-        x_or_o = "X"
+        x_or_o = "❌"
         print_game_field()
         choose_field()
         
@@ -90,13 +94,13 @@ def switch_player():
     if (current_player is player_one):
         print(f"{player_two} ist an der Reihe!")
         current_player = player_two
-        x_or_o = "O"
+        x_or_o = "⭕"
         print_game_field()
         choose_field()
     else:
         print(f"{player_one} ist an der Reihe!")
         current_player = player_one
-        x_or_o = "X"
+        x_or_o = "❌"
         print_game_field()
         choose_field()
         
@@ -217,7 +221,7 @@ def check_draw():
 
 def choose_field():
     #Use global variables in thise scope
-    global current_input
+    global current_input, frontend_game_field
     
     #Try given user input, only string allowed
     try:
@@ -236,7 +240,7 @@ def choose_field():
         
         #Replace array value 
         game_field.insert(current_input-1, x_or_o)
-        
+        frontend_game_field.update({str(current_input):x_or_o})
         #Delet current printed gamefield
         delete_line(11)
         
@@ -329,13 +333,13 @@ def read_current_game_data(path = str):
     
 def print_game_field():
     
-    print("---------")
-    print(f"{game_field[0]} | {game_field[1]} | {game_field[2]}")
-    print(f"--+---+--")
-    print(f"{game_field[3]} | {game_field[4]} | {game_field[5]}")
-    print(f"--+---+--")
-    print(f"{game_field[6]} | {game_field[7]} | {game_field[8]}")
-    print("---------")
+    print("--------------------")
+    print(f"  {frontend_game_field.get("1"):^}   |  {frontend_game_field.get("2"):^}   |  {frontend_game_field.get("3"):^}  ")
+    print(f"------+------+------")
+    print(f"  {frontend_game_field.get("4"):^}   |  {frontend_game_field.get("5"):^}   |  {frontend_game_field.get("6"):^}  ")
+    print(f"------+------+------")
+    print(f"  {frontend_game_field.get("7"):^}   |  {frontend_game_field.get("8"):^}   |  {frontend_game_field.get("9"):^}  ")
+    print("--------------------")
     print(f"Aktueller Punktestand | {player_one}: {points_player_one} | {player_two}: {points_player_two}")
     
 start_game()
