@@ -293,7 +293,7 @@ def add_points(currentplayer):
 def ask_user_yes_no(message=str):
     yes_no = input(message)
     if (yes_no == "esc" or yes_no == "e"):
-        delete_line(1)
+        delete_line(10)
         print("Programm beendet!")
         sys.exit(0)
     elif(yes_no =="J" or yes_no == "j"):
