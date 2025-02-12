@@ -2,7 +2,6 @@ import os
 import random
 import msvcrt as m
 import sys
-
 #Gamfield array 
 # frontend_game_field= ["1️⃣","2️⃣","3️⃣",
 #                       "4️⃣","5️⃣","6️⃣",
@@ -227,12 +226,13 @@ def choose_field():
     try:
         #Request user input 
         current_input = int(input("Wähle ein freies Feld, durch eingabe der Angezeigten zahlen: "))
+        
     except :
         #Point out error and request user input again
         delete_line(1)
         print("Bitte gebe eine Valide Ganzzahl ein! 😩")
         choose_field()
-          
+
     # Check if choosen field is availabel  
     if( current_input in game_field):
         #Remove current value in array 
@@ -292,7 +292,11 @@ def add_points(currentplayer):
 #Ask user Y/N question => return True/False
 def ask_user_yes_no(message=str):
     yes_no = input(message)
-    if(yes_no =="J" or yes_no == "j"):
+    if (yes_no == "esc" or yes_no == "e"):
+        delete_line(1)
+        print("Programm beendet!")
+        sys.exit(0)
+    elif(yes_no =="J" or yes_no == "j"):
         return True
     elif(yes_no == "N" or yes_no == "n"):
         return False
@@ -300,7 +304,7 @@ def ask_user_yes_no(message=str):
         delete_line(1)
         print("Bitte gebe nur J oder N ein! 😡")
         ask_user_yes_no(message)
-
+        
 #Check if file exists      
 def check_for_file():
     global current_path
