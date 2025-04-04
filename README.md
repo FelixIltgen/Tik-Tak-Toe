@@ -1,35 +1,35 @@
 # Tic-Tac-Toe ❌⭕
-### Ein kleines TicTacToe Game geschrieben in Python. 
+### A little Tic-Tac-Toe game written in Python. 
 
-Ziel dieses Projektes war es, die Programmiersprache Python zu lernen und die Basics in Python zu verstehen bzw. meine Kenntnisse aufzufrischen. Kern des Projektes ist ein einfaches vollfunktionsfähiges TicTacToe Spiel, welches über die Konsole einer IDE wie VS Code ausgeführt und gespielt werden kann.
+The core of the project is to develop a simple, fully functional TicTacToe game that can be executed and played via the console or in the console of an IDE such as VS Code.
 
-Folgende Features sind enthalten:
+The following features are included:
 
-* Individuelle Namen der Spieler.
-* Lokale Speicherung des letzten Spiels.
-* Zufällig zugewiesene Spielreihenfolge.
+* Individual player names.
+* Local saving of the last match.
+* Randomly assigned game order.
 
-Geschrieben wurde das Projekt mit:
+The project was written in:
 ```
 Python 3.13.0
 ```
 ![Image](https://github.com/user-attachments/assets/38601fd9-b532-480f-9fb0-392bc3570378)
 ![Image](https://github.com/user-attachments/assets/8e88ce8e-43d6-4551-80c8-25c1809fe5bb)
 ## Instalation
-### Benötigte Softwear
-* [Python](https://www.python.org/downloads/) Version 3.13 oder höher.
-* Eine IDE bspw. [Visual Studio Code](https://code.visualstudio.com/)* oder eine ähnliche Python fähige IDE.
+### Required softwear
+* [Python](https://www.python.org/downloads/) version 3.13 or higher.
+* An IDE such as [Visual Studio Code](https://code.visualstudio.com/)* or a similar Python-capable IDE.
 
 ### Schritte der Installation
-1. Clone dieses Repo in einen beliebigen Ordner deiner Wahl.
-2. Öffne in VS Code die Datei **tik_tak_toe.py**
-3. Starte die Datei und folge den Anweisungen in der Konsole.
+1. Clone this repo to any folder of your choice.
+2. Open the file **tik_tak_toe.py** in your IDE
+3. Run the file and follow the instructions in the console.
 
-## * Visual Studio Code Installation
+## * Visual Studio Code installation
 1. Installiere VS Code wie vom Installationsmanager vorgegeben.
-2. Starte das Programm und navigiere am linken Rand zum Reiter **Extensions**
-3. Suche im oberen Feld nach der **Python** Extension.
-4. Fahre nun mit den oben genannten Schritten fort. 
+2. Start the IDE and navigate to the **Extensions** tab on the left-hand side
+3. Search for the **Python** extension using the input field above.
+4. Now continue with the steps mentioned above.
 
 
 
